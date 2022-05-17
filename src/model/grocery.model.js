@@ -6,8 +6,8 @@ const grocerySchema = new mongoose.Schema({
     image:{type: String},
     price:{type: Number}
 },{
-    versionkey: false,
-    timestamps: true
+    versionKey: false,
+    timestamps: true,
 })
 
 module.exports = mongoose.model("grocery", grocerySchema);

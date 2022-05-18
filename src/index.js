@@ -14,10 +14,12 @@ const PORT = process.env.PORT;
 const groceryController = require("./controller/grocery.controller");
 const usersController = require("./controller/users.controller");
 const categoryController = require("./controller/category.controller");
+const mobileController = require("./controller/mobile.controller");
 
 app.use("/", groceryController);
-app.use("/", usersController)
+app.use("/", usersController);
 app.use("/", categoryController)
+app.use("/", mobileController)
 
 app.listen(PORT, async()=>{
 

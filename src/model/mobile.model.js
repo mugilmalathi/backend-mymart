@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const grocerySchema = new mongoose.Schema({
+const mobileSchema = new mongoose.Schema({
     id:{type: Number},
     title:{type: String},
     image:{type: String},
@@ -11,4 +11,4 @@ const grocerySchema = new mongoose.Schema({
     timestamps: true,
 })
 
-module.exports = mongoose.model("grocery", grocerySchema);
+module.exports = mongoose.model("mobile", mobileSchema);

@@ -25,7 +25,7 @@ router.get("/mobile", async(req, res)=>{
 router.get("/mobile/_id", async (req, res)=>{
     
     try{
-        const id = mongoose.Schema.Types.ObjectId;
+        // const id = mongoose.Schema.Types.ObjectId;
         const mobile = await Mobile
         .find(req.params.id)
         .lean()
@@ -40,7 +40,7 @@ router.patch("/mobile/_id", async (req, res)=>{
     
     try{
         const mobile = await Mobile.findByIdAndUpdate(
-            req.params.Types.ObjectId,
+            req.params.id,
             req.body,{
                new:true
             });
@@ -54,7 +54,7 @@ router.delete("/mobile/_id", async (req, res)=>{
     
     try{
         const mobile = await Mobile.findByIdAndDelete(
-            req.params.Types.ObjectId
+            req.params.id
             );
         return res.send(mobile)
     }catch(err){

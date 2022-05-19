@@ -15,13 +15,15 @@ const groceryController = require("./controller/grocery.controller");
 const usersController = require("./controller/users.controller");
 const categoryController = require("./controller/category.controller");
 const mobileController = require("./controller/mobile.controller");
-const addressController = require("./controller/address.controller")
+const addressController = require("./controller/address.controller");
+const fashionController = require("./controller/fashion.controller");
 
 app.use("/", groceryController);
 app.use("/", usersController);
 app.use("/", categoryController);
 app.use("/", mobileController);
 app.use("/", addressController);
+app.use("/", fashionController);
 
 app.listen(PORT, async()=>{
 

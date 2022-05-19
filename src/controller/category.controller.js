@@ -22,10 +22,9 @@ router.get("/category", async(req, res)=>{
     }
 })
 
-router.get("/category/_id", async (req, res)=>{
+router.get("/category/:id", async (req, res)=>{
     
     try{
-        const id = mongoose.Schema.Types.ObjectId;
         const category = await Category
         .find(req.params.id)
         .lean()
@@ -36,11 +35,11 @@ router.get("/category/_id", async (req, res)=>{
     }
 })
 
-router.patch("/category/_id", async (req, res)=>{
+router.patch("/category/:id", async (req, res)=>{
     
     try{
         const category = await Category.findByIdAndUpdate(
-            req.params.Types.ObjectId,
+            req.params.id,
             req.body,{
                new:true
             });
@@ -50,11 +49,11 @@ router.patch("/category/_id", async (req, res)=>{
     }
 })
 
-router.delete("/category/_id", async (req, res)=>{
+router.delete("/category/:id", async (req, res)=>{
     
     try{
         const category = await Category.findByIdAndDelete(
-            req.params.Types.ObjectId
+            req.params.id
             );
         return res.send(category)
     }catch(err){

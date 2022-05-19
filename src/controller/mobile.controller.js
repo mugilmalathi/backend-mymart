@@ -22,7 +22,7 @@ router.get("/mobile", async(req, res)=>{
     }
 })
 
-router.get("/mobile/:_id", async (req, res)=>{
+router.get("/mobile/:id", async (req, res)=>{
     
     try{
         // const id = mongoose.Schema.Types.ObjectId;
@@ -36,7 +36,7 @@ router.get("/mobile/:_id", async (req, res)=>{
     }
 })
 
-router.patch("/mobile/:_id", async (req, res)=>{
+router.patch("/mobile/:id", async (req, res)=>{
     
     try{
         const mobile = await Mobile.findByIdAndUpdate(
@@ -50,7 +50,7 @@ router.patch("/mobile/:_id", async (req, res)=>{
     }
 })
 
-router.delete("/mobile/:_id", async (req, res)=>{
+router.delete("/mobile/:id", async (req, res)=>{
     
     try{
         const mobile = await Mobile.findByIdAndDelete(

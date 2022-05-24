@@ -20,6 +20,7 @@ router.get("/grocery", async(req, res)=>{
         const grocery = await Grocery
         .find()
         .skip((page-1)*size)
+        .next((page+1)*size)
         .limit(size)
         .lean()
         .exec();

@@ -16,7 +16,7 @@ router.get("/grocery", async(req, res)=>{
 
     try{
         const page = req.query.page || 1;
-        const size = req.query.size || 4;
+        const size = req.query.size || 10;
         const grocery = await Grocery
         .find()
         .skip((page-1)*size)

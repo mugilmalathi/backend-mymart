@@ -18,7 +18,7 @@ const mobileController = require("./controller/mobile.controller");
 const addressController = require("./controller/address.controller");
 const fashionController = require("./controller/fashion.controller");
 const electronicController = require("./controller/electronics.controller");
-const paymentController = require("./controller/payment.controller");
+// const paymentController = require("./controller/payment.controller");
 
 app.use("/", groceryController);
 app.use("/", usersController);
@@ -27,7 +27,32 @@ app.use("/", mobileController);
 app.use("/", addressController);
 app.use("/", fashionController);
 app.use("/", electronicController);
-app.use("/", paymentController);
+// app.use("/", paymentController);
+
+
+const {v4:uuidv4} = require("uuid");
+const stripe = require("stripe")("sk_test_51L3F1zSAb8TFHtBOPYPCTXRmzGNffA54GKdoVfV9dlrlDzJZ4HDGytCxwufrQ2JhZUQNyHwB4MUg7siUliI4lwx300XCNpMV7M")
+
+app.post("/payment", async(req, res)=>{
+    const {product, token} = req.body;
+    const transactionKey = uuidv4();
+    return stripe.customers.create({
+        email: token.email,
+        source: token.id
+    }).then((customer)=>{
+        stripe.charges.create({
+            amount:product.price,
+            currency: "inr",
+            customer: customer.id,
+            receipt_email: token.email,
+            description: product.name
+        }).then((res)=>{
+            res.json(res)
+        }).catch((err)=>{
+            console.log(err);
+        })
+    })
+})
 
 app.listen(PORT, async()=>{
 

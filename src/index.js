@@ -18,6 +18,7 @@ const mobileController = require("./controller/mobile.controller");
 const addressController = require("./controller/address.controller");
 const fashionController = require("./controller/fashion.controller");
 const electronicController = require("./controller/electronics.controller");
+const paymentController = require("./controller/payment.controller");
 
 app.use("/", groceryController);
 app.use("/", usersController);
@@ -26,6 +27,7 @@ app.use("/", mobileController);
 app.use("/", addressController);
 app.use("/", fashionController);
 app.use("/", electronicController);
+app.use("/", paymentController);
 
 app.listen(PORT, async()=>{
 

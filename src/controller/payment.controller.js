@@ -26,4 +26,4 @@ router.post("/payment", async(req, res)=>{
 })
 
 
-export default router;
+module.exports = router;

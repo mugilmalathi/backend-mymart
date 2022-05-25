@@ -54,6 +54,10 @@ app.post("/payment", async(req, res)=>{
     })
 })
 
+app.get("/payment", (req, res)=>{
+    res.send("It is working..!")
+})
+
 app.listen(PORT, async()=>{
 
     try{

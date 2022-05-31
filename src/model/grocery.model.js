@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const grocerySchema = new mongoose.Schema({
-    id:{type: Number},
-    title:{type: String},
-    image:{type: String},
-    price:{type: Number},
-    description:{type: String},
+    id:{type: Number, require:true},
+    title:{type: String, require:true},
+    image:{type: String, require:true},
+    price:{type: Number, require:true},
+    description:{type: String, require:true},
     qty:{type: Number}
 },{
     versionKey: false,

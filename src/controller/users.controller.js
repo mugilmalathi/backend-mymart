@@ -6,7 +6,11 @@ router.post("/users", async(req, res)=>{
 
     try{
         const users = await Users.create(req.body);
-        return res.status(201).send(users);
+        if(!users){
+            console.log("User already Exist..!")
+        }else{
+            return res.status(201).send(users);
+        }
     }catch(err){
         return res.status(500).send(err);
     }

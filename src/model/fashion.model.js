@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const fashionSchema = new mongoose.Schema({
-    id:{type: Number},
-    title:{type: String},
-    image:{type: String},
-    price:{type: Number},
-    description:{type: String},
+    id:{type: Number, required:true},
+    title:{type: String, required:true},
+    image:{type: String, required:true},
+    price:{type: Number, required:true},
+    description:{type: String, required:true},
     qty:{type: Number}
 },{
     versionKey: false,

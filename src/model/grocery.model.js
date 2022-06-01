@@ -6,7 +6,8 @@ const grocerySchema = new mongoose.Schema({
     image:{type: String, required:true},
     price:{type: Number, required:true},
     description:{type: String, required:true},
-    qty:{type: Number}
+    qty:{type: Number},
+    cart:{type: String}
 },{
     versionKey: false,
     timestamps: true,
